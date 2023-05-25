@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+#drag-container, #spin-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(-10deg);
+          transform: rotateX(-10deg);
+
+}
+
+#drag-container img, #drag-container video {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  font-size: 50px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px #fff;
+          box-shadow: 0 0 8px #fff;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+}
+
+#drag-container img:hover, #drag-container video:hover {
+  -webkit-box-shadow: 0 0 15px #fffd;
+          box-shadow: 0 0 15px #fffd;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+}
+
+#drag-container p {
+  font-family: Serif;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+          transform: translate(-50%,-50%) rotateX(90deg);
+  color: #fff;
+}
+
+#ground {
+  width: 900px;
+  height: 900px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+          transform: translate(-50%,-50%) rotateX(90deg);
+  background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
+}
+
+/* #music-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */
+
+@-webkit-keyframes spin {
+  from{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  } to{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes spin {
+  from{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  } to{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+@-webkit-keyframes spinRevert {
+  from{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  } to{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@keyframes spinRevert {
+  from{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  } to{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url("./images/b.webp");
+  min-height: 830px;
+
+  /* Center and scale the image nicely */
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#seleccionar-mascota {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px;
+}
+#carrusel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+text {
+  fill: #35322a;
+  filter: url('#money');
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 70px;  
+  font-weight: 600;
+}
+
+.subtitulo  {
+  color: black;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+    letter-spacing: .05em;
+    text-shadow: 
+      1px 1px 0px white, 
+      3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.tarjetas, .tarjetas-ataques {
+  display: flex;
+  gap: 10px;
+}
+
+.tarjeta-de-mokepon {
+  width: 180px;
+  height: 100px;
+  background: #FF597B;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.tarjeta-de-mokepon img {
+  width: 80px;
+}
+
+#boton-mascota {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  margin-top: 50px;
+  color: black;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+    letter-spacing: .05em;
+    text-shadow: 
+      1px 1px 0px white, 
+      3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  display: none;
+}
+
+input:checked + label {
+  background-color: #FF8E9E;
+}
+
+#seleccionar-ataque {
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.boton-de-ataque { 
+  margin-top: 20px;
+  background-color: #FF597B;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border-color: transparent;
+  width: 80px;
+  font-family: 'Poppins', sans-serif;
+}
+
+#mensajes {
+  width: 280px;
+  background: #EEEEEE;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#boton-reiniciar {
+  border: none;
+  color: #11468F;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+.ataques {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  color: white;
+
+}
+
+#vidas-jugador, #vidas-enemigo {
+  font-size: 32px;
+  margin-bottom: 0;
+}
+
+.ataques-jugador, .ataques-enemigo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ver-mapa {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#ver-mapa button {
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  margin: 10px 0;
+}
+
+@media (max-width: 560px) {
+  .tarjetas, .tarjetas-ataques {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 300px) {
+  #ver-mapa div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
